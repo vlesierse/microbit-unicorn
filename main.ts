@@ -1,14 +1,20 @@
-basic.showNumber(1)
-basic.showNumber(2)
-basic.showNumber(3)
-basic.showNumber(4)
-basic.showNumber(5)
+input.onButtonPressed(Button.A, function () {
+    item += 5
+})
+input.onButtonPressed(Button.B, function () {
+    item += -5
+})
+led.enable(true)
+let item = 0
 basic.forever(function () {
-    basic.showLeds(`
-        . . . # .
-        . . # . #
-        . . # # #
-        . . # . #
-        . . # # #
-        `)
+    led.plotBarGraph(
+    item,
+    25
+    )
+    if (item > 25) {
+        item = 25
+    }
+    if (item < 0) {
+        item = 0
+    }
 })
