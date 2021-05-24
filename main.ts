@@ -1,5 +1,8 @@
-serial.redirectToUSB()
+led.enable(true)
 basic.forever(function () {
-    serial.writeValue("Temperature", input.temperature())
-    basic.pause(500)
+    if (input.temperature() > 29) {
+        basic.showIcon(IconNames.Heart)
+    } else {
+        basic.showIcon(IconNames.SmallHeart)
+    }
 })
